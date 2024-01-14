@@ -4,3 +4,368 @@
 *:after {
   box-sizing: border-box;
 }
+
+html {
+  box-sizing: border-box;
+}
+
+/* * {
+  text-decoration: none;
+} */
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html {
+  font-family: 'Share Tech Moto', sans-serif;
+}
+
+#wrapper {
+  width: 100%;
+  background-color: #ffffff;
+  margin-left: auto;
+  margin-right: auto;
+  /* padding-bottom: 1em; */
+}
+
+/* header span {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+} */
+
+header a {
+  align-self: center;
+  text-decoration: none;
+  color: #3a3a3a;
+  font-size: 1.2em;
+}
+
+#top-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+#logo {
+  margin: 15px;
+  font-size: 2em;
+}
+
+#account {
+  text-align: right;
+  margin: 15px;
+  font-size: 1em;
+}
+
+nav {
+  width: 100%;
+}
+
+nav ul {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  background-color: #3a3a3a;
+  padding-left: 5px;
+  margin-top: 0;
+}
+
+nav li {
+ list-style: none;
+ padding: 1em 0.3em;
+ color: #ffffff;
+ text-align: center;
+}
+
+nav li:hover {
+  background-color: #4c96d7;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+main, footer {
+  margin: 10px;
+}
+
+.own {
+  /* display: block; */
+  width: 350%;
+  max-width: 210px;
+}
+
+.own-small-view {
+  /* width: 20%;
+  height: 50%; */
+  display: none;
+}
+
+.image-container-1 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.image-container-2 {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.image-container-3 {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+hr {
+  border-top: 3px solid #3a3a3a;
+}
+
+footer {
+  text-align: left;
+  font-size: 1.1em;
+  margin-bottom: 0;
+}
+
+footer p {
+  margin-bottom: 15px;
+}
+
+.home-container h1 {
+  margin: 20px 0px 20px 0;
+  font-size: 1.5em;
+}
+
+.home-section-1 {
+  max-height: 200px;
+  background: url("/images/vehicles/delorean.jpg");
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #ffffff;
+  max-width: 100%;
+  height: 300px;
+}
+
+.banner-details {
+  padding: 0;
+  background-color: rgba(255, 255, 255, 0.65);
+  width: 40%;
+}
+
+.banner-details h2 {
+  line-height: 100%;
+  display: inline;
+  font-size: 1.1em;
+  color: #4c96d7;
+}
+
+.banner-details p {
+  font-size: 1em;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #4c96d7;
+}
+
+.banner-details img {
+  width: 80%;
+  margin-bottom: 10px;
+}
+
+/* .action-button {
+  text-align: center;
+  margin-top: -15px;
+} */
+
+/* .action-button img {
+  max-width: 50%;
+} */
+
+.home-section-2 {
+  margin-top: 5px;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.home-section-2 h3 {
+  font-size: 1.3em;
+}
+
+.subsection {
+  width: 100%;
+}
+
+.subsection h3 {
+  margin: 15px 0 20px 0;
+}
+
+.upgrades-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 95%;
+  /* margin-bottom: 40px; */
+}
+
+.upgrade {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 48%;
+  margin-bottom: 20px;
+}
+
+.image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4c96d7;
+  color: #4c96d7;
+  font-size: 1.2em;
+  text-align: center;
+  width: 100%;
+}
+
+.reviews {
+  font-size: 1.1em;
+  line-height: 1.5em;
+  padding-left: 0;
+  margin-left: 15px;
+}
+
+.reviews li {
+  padding: 5px 0;
+}
+
+.home-container h1 {
+  font-size: 1.5em;
+}
+
+.home-section-1 {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+/* .image-container a {
+  color: #4c96d7;
+  font-size: 2em;
+} */
+
+@media only screen and (min-width: 450px) {
+  .home-section-2 {
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  .home-section-1 {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  .home-container h1 {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  .banner-details {
+    width: 39%;
+    /* max-width: 195px; */
+  }
+
+  .banner-details h2 {
+    font-size: 1.3em;
+  }
+
+  .banner-details p {
+    font-size: 1.1em;
+  }
+
+  .banner-details img {
+    max-width: 150px;
+  }
+
+  .home-container h1 {
+    font-size: 1.7em;
+  }
+}
+
+@media only screen and (min-width: 610px) {
+    body {
+        background-image: url("../images/site/small_check.jpg");
+        background-size: cover;
+    }
+
+    #wrapper {
+        background-color: #ffffff;
+        margin: 20px auto;
+        max-width: 700px;
+        border: 3px solid #4c96d7;
+        border-radius: 4px;
+    }
+
+    /* .own {
+        display: block;
+    } */
+    
+    .home-section-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+  
+    .subsection-1 {
+        grid-column: 2/3;
+        margin-left: 10px;
+    }
+  
+    .subsection-2 {
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+  
+    .home-section-2 {
+      margin-top: 10px;
+      margin-right: 15px;
+      margin-left: 15px;
+    }
+  
+    /* .action-button {
+        display: none;
+    } */
+  
+    .banner-details {
+        padding: 0 0 0 50px;
+        width: 42%;
+    }
+  
+    .home-section-1 {
+        max-height: 225px;
+        height: 300px;
+    }
+  
+    .home-container h1 {
+        margin: 20px;
+        margin-left: 10px;
+    }
+
+    .banner-details h2 {
+      font-size: 1.5em;
+    }
+  
+    .banner-details p {
+        font-size: 1.3em;
+    }
+
+    .banner-details img {
+      width: 80%;
+    }
+
+    footer p {
+      margin-left: 15px;
+    }
+}
