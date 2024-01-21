@@ -236,9 +236,9 @@
 --     5
 --   );
 
--- -- Query 1
--- INSERT INTO account (account_firstname, account_lastname, account_email, account_password)
--- VALUES ('Tony', 'Stark', 'tony@starkent.com', 'Iam1ronM@n');
+-- Query 1
+INSERT INTO account (account_firstname, account_lastname, account_email, account_password)
+VALUES ('Tony', 'Stark', 'tony@starkent.com', 'Iam1ronM@n');
 
 -- -- Query 2
 -- UPDATE account
@@ -260,7 +260,7 @@
 --     ON inventory.classification_id = classification.classification_id
 -- WHERE inventory.classification_id = 2;
 
--- Query 6
-UPDATE inventory
-SET inv_image = replace(inv_image, '/images/', '/images/vehicles/'),
-    inv_thumbnail = replace(inv_image, '/images/', '/images/vehicles/');
+-- -- Query 6
+-- UPDATE inventory
+-- SET inv_image = replace(inv_image, '/images/', '/images/vehicles/'),
+--     inv_thumbnail = replace(inv_image, '/images/', '/images/vehicles/');

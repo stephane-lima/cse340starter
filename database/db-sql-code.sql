@@ -265,4 +265,4 @@ WHERE inventory.classification_id = 2;
 -- Query 6
 UPDATE inventory
 SET inv_image = replace(inv_image, '/images/', '/images/vehicles/'),
-    inv_thumbnail = replace(inv_image, '/images/', '/images/vehicles/');
+    inv_thumbnail = replace(inv_thumbnail, '/images/', '/images/vehicles/');
