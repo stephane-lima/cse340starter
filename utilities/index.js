@@ -57,6 +57,32 @@ Util.buildClassificationGrid = async function(data){
     return grid
 }
 
+/* **************************************
+* Build the vehicle information view HTML
+* ************************************ */
+Util.buildVehicleInfoGrid = async function (data) {
+    let grid
+    if(data.length > 0) {
+        grid = '<div>'
+        data.forEach(vehicle => {
+            grid += '<div>'
+            grid += '<img src="' + vehicle.inv_image + '" alt="Image of ' + vehicle.inv_make + ' ' + vehicle.inv_model + '"/>'
+            grid += '</div>'
+            grid += '<div>'
+            grid += '<h3>' + vehicle.inv_make + ' ' + vehicle.inv_model + ' Details</h3>'
+            grid += '<h4>Price: <span>$' + new Intl.NumberFormat('en-US').format(vehicle.inv_price) + '</span></h4>'
+            grid += '<h4>Description: ' + vehicle.inv_description + '</h4>'
+            grid += '<h4>Color: ' + vehicle.inv_color + '</h4>'
+            grid += '<h4> Miles: ' + new Intl.NumberFormat('en-US').format(vehicle.inv_miles) + '</h4>'
+            grid += '</div>'
+        })
+        grid += '</div>'
+    } else {
+        grid += '<p class="notice">Sorry, no matching vehicles could be found.</p>'
+    }
+    return grid
+}
+
 /* ****************************************
  * Middleware For Handling Errors
  * Wrap other function in this for 
