@@ -175,15 +175,6 @@ footer p {
   margin-bottom: 10px;
 }
 
-/* .action-button {
-  text-align: center;
-  margin-top: -15px;
-} */
-
-/* .action-button img {
-  max-width: 50%;
-} */
-
 .home-section-2 {
   margin-top: 5px;
   display: grid;
@@ -251,10 +242,36 @@ footer p {
   margin-right: 5px;
 }
 
-/* .image-container a {
-  color: #4c96d7;
-  font-size: 2em;
-} */
+/*************************** 
+  * Classification View
+***************************/
+#inv-display {
+  padding-left: 0;
+}
+
+#inv-display li {
+  border: 2px solid #4c96d7;
+  border-radius: 10px;
+  list-style: none;
+  margin-bottom: 15px;
+}
+
+#inv-display img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.namePrice {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+/*************************** 
+  * Inventory View
+***************************/
+#inventory-grid img {
+  width: 100%;
+}
 
 @media only screen and (min-width: 450px) {
   .home-section-2 {
@@ -293,6 +310,29 @@ footer p {
   .home-container h1 {
     font-size: 1.7em;
   }
+
+  /*************************** 
+  * Classification View
+  ***************************/
+  #inv-display {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+  }
+
+  /*************************** 
+  * Inventory View
+  ***************************/
+  #inventory-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 15px;
+  }
+
+  #inventory-grid h3 {
+    margin-top: 0;
+  }
+
 }
 
 @media only screen and (min-width: 610px) {
@@ -365,7 +405,14 @@ footer p {
       width: 80%;
     }
 
-    footer p {
+    footer p, footer a {
       margin-left: 15px;
+    }
+
+    /*************************** 
+    * Classification View
+    ***************************/
+    #inv-display {
+      grid-template-columns: 1fr 1fr 1fr;
     }
 }
