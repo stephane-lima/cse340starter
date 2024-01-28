@@ -33,20 +33,22 @@ Util.buildClassificationGrid = async function(data){
         grid = '<ul id="inv-display">'
         data.forEach(vehicle => { 
             grid += '<li>'
+            grid += '<div class="div-img">'
             grid +=  '<a href="../../inv/detail/'+ vehicle.inv_id 
             + '" title="View ' + vehicle.inv_make + ' '+ vehicle.inv_model 
-            + 'details"><img src="' + vehicle.inv_thumbnail 
+            + ' details"><img src="' + vehicle.inv_thumbnail 
             +'" alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model 
-            +' on CSE Motors" /></a>'
+            +' on CSE Motors"></a>'
+            grid += '</div>'
             grid += '<div class="namePrice">'
-            grid += '<hr />'
-            grid += '<h2>'
+            grid += '<hr>'
+            grid += '<p>'
             grid += '<a href="../../inv/detail/' + vehicle.inv_id +'" title="View ' 
             + vehicle.inv_make + ' ' + vehicle.inv_model + ' details">' 
             + vehicle.inv_make + ' ' + vehicle.inv_model + '</a>'
-            grid += '</h2>'
-            grid += '<span>$' 
-            + new Intl.NumberFormat('en-US').format(vehicle.inv_price) + '</span>'
+            grid += '</p>'
+            grid += '<p>$' 
+            + new Intl.NumberFormat('en-US').format(vehicle.inv_price) + '</p>'
             grid += '</div>'
             grid += '</li>'
         })
@@ -66,14 +68,16 @@ Util.buildVehicleInfoGrid = async function (data) {
         grid = '<div id="inventory-grid">'
         data.forEach(vehicle => {
             grid += '<div>'
-            grid += '<img src="' + vehicle.inv_image + '" alt="Image of ' + vehicle.inv_make + ' ' + vehicle.inv_model + '"/>'
+            grid += '<img src="' + vehicle.inv_image + '" alt="Image of ' + vehicle.inv_make + ' ' + vehicle.inv_model + '">'
             grid += '</div>'
             grid += '<div>'
-            grid += '<h3>' + vehicle.inv_make + ' ' + vehicle.inv_model + ' Details</h3>'
-            grid += '<h4>Price: <span>$' + new Intl.NumberFormat('en-US').format(vehicle.inv_price) + '</span></h4>'
-            grid += '<h4>Description: ' + vehicle.inv_description + '</h4>'
-            grid += '<h4>Color: ' + vehicle.inv_color + '</h4>'
-            grid += '<h4> Miles: ' + new Intl.NumberFormat('en-US').format(vehicle.inv_miles) + '</h4>'
+            grid += '<h2>' + vehicle.inv_make + ' ' + vehicle.inv_model + ' Details</h2>'
+            grid += '<ul>'
+            grid += '<li class="colored-backgroung"><strong>Price: </strong><span>$' + new Intl.NumberFormat('en-US').format(vehicle.inv_price) + '</span></li>'
+            grid += '<li><strong>Description: </strong>' + vehicle.inv_description + '</li>'
+            grid += '<li class="colored-backgroung"><strong>Color: </strong>' + vehicle.inv_color + '</li>'
+            grid += '<li><strong> Miles: </strong>' + new Intl.NumberFormat('en-US').format(vehicle.inv_miles) + '</li>'
+            grid += '</ul>'
             grid += '</div>'
         })
         grid += '</div>'

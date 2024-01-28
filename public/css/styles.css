@@ -128,10 +128,20 @@ footer {
   text-align: left;
   font-size: 1.1em;
   margin-bottom: 0;
+  margin-top: 25px;
 }
 
 footer p {
   margin-bottom: 15px;
+}
+
+.copyright {
+  margin-bottom: 5px;
+  margin-top: 20px;
+}
+
+.error-link {
+  margin-top: 5px;
 }
 
 .home-container h1 {
@@ -263,7 +273,15 @@ footer p {
 
 .namePrice {
   text-align: center;
-  padding-bottom: 20px;
+  align-items: center;
+}
+
+.namePrice p {
+  font-size: 1.4em;
+}
+
+.namePrice p a {
+  color: royalblue;
 }
 
 /*************************** 
@@ -271,6 +289,43 @@ footer p {
 ***************************/
 #inventory-grid img {
   width: 100%;
+}
+
+#inventory-grid ul {
+  padding: 0;
+  font-size: 1em;
+}
+
+#inventory-grid ul li{
+  list-style: none;
+  font-size: 1.1em;
+  /* font-weight: 100; */
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+#inventory-grid h2{
+  margin-bottom: 10px;
+}
+
+.colored-backgroung {
+  background-color: lightgray;
+}
+
+.error-title {
+  margin-bottom: 10px;
+}
+
+/* #inventory-grid ul li strong {
+  font-size: 1.2em;
+} */
+
+/*************************** 
+* Error View
+***************************/
+.error-container p {
+  font-size: 1.2em;
+  margin-top: 0;
 }
 
 @media only screen and (min-width: 450px) {
@@ -317,7 +372,12 @@ footer p {
   #inv-display {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: 20px;
+    column-gap: 15px;
+  }
+
+  .div-img {
+    height: 160px;
+    max-height: 100%;
   }
 
   /*************************** 
@@ -329,10 +389,24 @@ footer p {
     column-gap: 15px;
   }
 
-  #inventory-grid h3 {
+  #inventory-grid h2 {
     margin-top: 0;
   }
 
+}
+
+@media only screen and (min-width: 500px) {
+  .div-img {
+    height: 178px;
+    /* max-height: 100%; */
+  }
+}
+
+@media only screen and (min-width: 550px) {
+  .div-img {
+    height: 198px;
+    /* max-height: 100%; */
+  }
 }
 
 @media only screen and (min-width: 610px) {
@@ -405,8 +479,8 @@ footer p {
       width: 80%;
     }
 
-    footer p, footer a {
-      margin-left: 15px;
+    footer p {
+      margin-left: 10px;
     }
 
     /*************************** 
@@ -415,4 +489,22 @@ footer p {
     #inv-display {
       grid-template-columns: 1fr 1fr 1fr;
     }
+
+    .div-img {
+      height: 140px;
+    }
+
+    /*************************** 
+    * Error View
+    ***************************/
+    .error-container {
+      margin-left: 15px;
+    }
+}
+
+@media only screen and (min-width: 660px) {
+  .div-img {
+    height: 158px;
+    /* max-height: 100%; */
+  }
 }

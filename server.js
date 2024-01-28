@@ -37,11 +37,12 @@ app.use("/inv", utilities.handleErrors(inventoryRoute))
 app.use("../../inv", utilities.handleErrors(inventoryRoute))
 
 // Intentional Server Error
-app.get("/footer", utilities.handleErrors(baseController.buildFooter))
+// app.get("/footer", utilities.handleErrors(baseController.buildFooter))
+app.use("/inv", utilities.handleErrors(baseController))
 
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
-  next({status: 404, message: 'Sorry, we appear to have lost that page.'})
+    next({status: 404, message: 'Sorry, we appear to have lost that page.'})
 })
 
 /* ***********************
@@ -49,18 +50,18 @@ app.use(async (req, res, next) => {
 * Place after all other middleware
 *************************/
 app.use(async (err, req, res, next) => {
-  let nav = await utilities.getNav()
-  console.error(`Error at: "${req.originalUrl}": ${err.message}`)
-  if(err.status == 404) { 
-    message = err.message
-  } else {
-    message = 'Oh no! There was a crash. Maybe try a different route?'
-  }
-  res.render("errors/error", {
-    title: err.status || 'Server Error',
-    message,
-    nav
-  })
+    let nav = await utilities.getNav()
+    console.error(`Error at: "${req.originalUrl}": ${err.message}`)
+    if(err.status == 404) { 
+        message = err.message
+    } else {
+        message = 'Oh no! There was a crash. Maybe try a different route?'
+    }
+    res.render("errors/error", {
+        title: err.status || 'Server Error',
+        message,
+        nav
+    })
 })
 
 /* ***********************
@@ -74,5 +75,5 @@ const host = process.env.HOST
  * Log statement to confirm server operation
  *************************/
 app.listen(port, () => {
-  console.log(`app listening on ${host}:${port}`)
+    console.log(`app listening on ${host}:${port}`)
 })
