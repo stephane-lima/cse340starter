@@ -1,0 +1,16 @@
+<!-- Content Heading -->
+<% if (title) { %>
+<h1><%= title %></h1>
+<% } else {
+    res.redirect('/')
+} %>
+
+<!-- Message Block -->
+<%- messages() %>
+
+<!-- Registration Display-->
+<form>
+    <label class="lbl-properties">First name:
+       <input type="text" id="fname" name="account_firstname"> 
+    </label>
+</form>

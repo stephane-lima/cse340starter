@@ -1,0 +1,27 @@
+<!-- Content Heading -->
+<% if (title) { %>
+<h1><%= title %></h1>
+<% } else {
+    res.redirect('/')
+} %>
+
+<!-- Message Block -->
+<%- messages() %>
+
+<!-- Login Display -->
+<form>
+    <label class="lbl-properties">Email:
+        <input type="email" id="email" name="account_email" placeholder="someone@gmail.com">
+    </label>
+    <label class="lbl-properties">Password:
+        <input type="password" id="password" name="account_password">
+    </label>
+
+    <div class="form-row">
+        <!-- <button type="submit" class="btn-submit" id="btn-submit">Login</button> -->
+        <input type="submit" name="submit" id="regbtn" class="btn-submit" value="Login">
+        <!-- <input type="hidden" name="action" value="Login"> -->
+    </div>
+
+    <p>No Account? <a href="/account/register">Sign-Up</a></p>
+</form>
