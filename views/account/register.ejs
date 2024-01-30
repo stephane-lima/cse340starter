@@ -9,8 +9,25 @@
 <%- messages() %>
 
 <!-- Registration Display-->
-<form>
+<form action="/account/register" method="post">
     <label class="lbl-properties">First name:
        <input type="text" id="fname" name="account_firstname"> 
     </label>
+    <label class="lbl-properties">Last name:
+        <input type="text" id="lname" name="account_lastname">
+    </label>
+    <label class="lbl-properties">Email address:
+        <input type="email" id="email" name="account_email" placeholder="someone@gmail.com">
+    </label>
+    <label class="lbl-properties">Password:
+        <input type="password" id="password" name="account_password">
+    </label>
+    <span id="pswdBtn">Show Password</span>
+
+    <div class="form-row">
+        <!-- <button type="submit" class="btn-submit" id="btn-submit">Register</button> -->
+        <input type="submit" name="submit" id="regbtn" class="btn-submit" value="Register">
+        <!-- <input type="hidden" name="action" value="register"> -->
+    </div>
 </form>
+<script src="../../public/js/script.js"></script>
