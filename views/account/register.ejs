@@ -8,19 +8,29 @@
 <!-- Message Block -->
 <%- messages() %>
 
+<% if (errors) { %>
+    <ul class="notice">
+        <% errors.array().forEach(error => { %>
+            <li><%= error.msg %></li>
+        <% }) %>
+    </ul>
+<% } %>
+
 <!-- Registration Display-->
 <form action="/account/register" method="post">
     <label class="lbl-properties">First name:
-       <input type="text" id="fname" name="account_firstname"> 
+       <input type="text" id="fname" name="account_firstname" required> 
     </label>
     <label class="lbl-properties">Last name:
-        <input type="text" id="lname" name="account_lastname">
+        <input type="text" id="lname" name="account_lastname" required>
     </label>
     <label class="lbl-properties">Email address:
-        <input type="email" id="email" name="account_email" placeholder="someone@gmail.com">
+        <input type="email" id="email" name="account_email" placeholder="Enter a valid email address" required>
     </label>
     <label class="lbl-properties">Password:
-        <input type="password" id="password" name="account_password">
+        <div><i>Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character</i></div>
+        <input type="password" id="password" name="account_password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$" required>
+        <!-- <span id="pswdBtn">Show Password</span> -->
     </label>
     <span id="pswdBtn">Show Password</span>
 
@@ -30,4 +40,4 @@
         <!-- <input type="hidden" name="action" value="register"> -->
     </div>
 </form>
-<script src="../../public/js/script.js"></script>
+<script src="/public/js/script.js"></script>
