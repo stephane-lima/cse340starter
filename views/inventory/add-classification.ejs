@@ -1,0 +1,20 @@
+<!-- Content Heading -->
+<% if (title) { %>
+<h1><%= title %></h1>
+<% } else {
+    res.redirect('/')
+} %>
+
+<!-- Message Block -->
+<%- messages() %>
+
+<!-- Add Classification Display -->
+<form action="/inv/addClassification" method="post">
+    <label class="lbl-properties">Classification Name:
+        <input type="text" name="classification_name" id="classification_name" required>
+    </label>
+
+    <div class="form-row">
+        <input type="submit" name="submit" id="regbtn" class="btn-submit" value="Add Classification">
+    </div>
+</form>

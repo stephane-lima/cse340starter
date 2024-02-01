@@ -72,6 +72,8 @@ app.use("/account", utilities.handleErrors(accountRoute))
 // app.get("/footer", utilities.handleErrors(baseController.buildFooter))
 app.use("/inv", utilities.handleErrors(baseController))
 
+
+
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
     next({status: 404, message: 'Sorry, we appear to have lost that page.'})

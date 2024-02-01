@@ -19,13 +19,13 @@
 <!-- Registration Display-->
 <form action="/account/register" method="post">
     <label class="lbl-properties">First name:
-       <input type="text" id="fname" name="account_firstname" required> 
+       <input type="text" id="fname" name="account_firstname" required value="<%= locals.account_firstname %>"> 
     </label>
     <label class="lbl-properties">Last name:
-        <input type="text" id="lname" name="account_lastname" required>
+        <input type="text" id="lname" name="account_lastname" required value="<%= locals.account_lastname %>">
     </label>
     <label class="lbl-properties">Email address:
-        <input type="email" id="email" name="account_email" placeholder="Enter a valid email address" required>
+        <input type="email" id="email" name="account_email" placeholder="Enter a valid email address" required value="<%= locals.account_email %>">
     </label>
     <label class="lbl-properties">Password:
         <div><i>Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character</i></div>
