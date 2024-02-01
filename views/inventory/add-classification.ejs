@@ -8,10 +8,19 @@
 <!-- Message Block -->
 <%- messages() %>
 
+<% if (errors) { %>
+    <ul class="notice">
+        <% errors.array().forEach(error => { %>
+            <li><%= error.msg %></li>
+        <% }) %>
+    </ul>
+<% } %>
+
 <!-- Add Classification Display -->
 <form action="/inv/addClassification" method="post">
     <label class="lbl-properties">Classification Name:
-        <input type="text" name="classification_name" id="classification_name" required>
+        <input type="text" name="classification_name" id="classification_name" pattern="[a-zA-Z0-9].{1,}" required>
+        <p>Classification name cannot contain a space or special character</p>
     </label>
 
     <div class="form-row">

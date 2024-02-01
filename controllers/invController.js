@@ -108,7 +108,7 @@ invCont.registerClassification = async function (req, res) {
 }
 
 /* ****************************************
-*  Process New Classification
+*  Process New Vehicle
 * *************************************** */
 invCont.registerVehicle = async function (req, res) {
     let nav = await utilities.getNav()
