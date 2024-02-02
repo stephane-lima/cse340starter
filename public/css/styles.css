@@ -353,13 +353,13 @@ form label.lbl-properties {
   margin-bottom: 5px;
 }
 
-form p {
+/* form p {
   text-align: center;
   margin-top: 15px;
   margin-bottom: 5px;
   font-size: 1.15em;
   color: #3a3a3a;
-}
+} */
 
 form p a {
   text-decoration: underline;
@@ -470,6 +470,35 @@ form textarea {
 .btn-submit:hover {
   border-color: #3a3a3a;
   transition: .5s;
+}
+
+.notice {
+  margin-left: 10px;
+}
+
+.notice li {
+  color: royalblue;
+  font-size: 1.1em;
+  margin-bottom: 7px;
+  padding-left: 0;
+}
+
+.notice li a {
+  color: royalblue;
+  font-size: 1.1em;
+  /* margin-bottom: 10px; */
+}
+
+.classification_name {
+  text-align: left;
+  font-size: 1.1em;
+  /* margin-top: 0; */
+}
+
+.required {
+  font-size: 1.2em;
+  color: royalblue;
+  margin-bottom: 0;
 }
 
 @media only screen and (min-width: 450px) {

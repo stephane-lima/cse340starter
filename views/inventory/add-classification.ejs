@@ -19,9 +19,9 @@
 <!-- Add Classification Display -->
 <form action="/inv/addClassification" method="post">
     <label class="lbl-properties">Classification Name:
-        <input type="text" name="classification_name" id="classification_name" pattern="[a-zA-Z0-9].{1,}" required>
-        <p>Classification name cannot contain a space or special character</p>
+        <input type="text" name="classification_name" id="classification_name" pattern="[a-zA-z]{1,}" required>
     </label>
+    <p class="classification_name">Classification name cannot contain a space or special character</p>
 
     <div class="form-row">
         <input type="submit" name="submit" id="regbtn" class="btn-submit" value="Add Classification">
