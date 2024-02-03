@@ -78,10 +78,12 @@ validate.checkAddVehicleRules = async (req, res, next) => {
     errors = validationResult(req)
     if (!errors.isEmpty()) {
         let nav = await utilities.getNav()
+        let selectList = await utilities.selectList(classification_id)
         res.render("./inventory/add-inventory", {
             errors,
             title: "Add Vehicle",
             nav,
+            selectList,
             classification_id, 
             inv_make, 
             inv_model, 

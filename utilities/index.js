@@ -1,4 +1,5 @@
 const invModel = require("../models/inventory-model")
+const invModel1 = require("../models/inventory-model")
 const Util = {}
 
 /* ************************
@@ -90,14 +91,20 @@ Util.buildVehicleInfoGrid = async function (data) {
 /* **************************************
 * Build a dynamic drop-down select list
 * ************************************ */
-Util.selectList = async function (req, res, next) {
+Util.selectList = async function (classification_id) {
     let data = await invModel.getClassifications()
     let list = '<label class="lbl-properties">Classification:'
     list += '<select class="lbl-properties" id="classification_id" name="classification_id" required>'
-    list += '<option value="">Choose a classification</option>'
+    list += '<option value="" selected>Choose a classification</option>'
     data.rows.forEach((row) => {
-        list += '<option value="' + row.classification_id
-        list += '">' + row.classification_name + '</option>'
+        list += `<option value="${row.classification_id}"`
+        // const classification_id = req.body
+        if (classification_id) {
+            if(row.classification_id == classification_id) {
+                list += ' selected '
+            }
+        }
+        list += `>${row.classification_name}</option>`
     })
     list += '</select>'
     list += '</label>'
