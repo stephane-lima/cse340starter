@@ -98,7 +98,6 @@ Util.selectList = async function (classification_id) {
     list += '<option value="" selected>Choose a classification</option>'
     data.rows.forEach((row) => {
         list += `<option value="${row.classification_id}"`
-        // const classification_id = req.body
         if (classification_id) {
             if(row.classification_id == classification_id) {
                 list += ' selected '
