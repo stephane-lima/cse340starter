@@ -1,5 +1,6 @@
 const utilities = require(".")
 const { body, validationResult } = require("express-validator")
+const inventoryModel = require("../models/inventory-model")
 const validate = {}
 
 /*  **********************************
@@ -11,61 +12,61 @@ validate.addVehicleRules = () => {
         body("classification_id")
             .trim()
             .isNumeric({ no_symbols: true })
-            .withMessage("Please select a classification name."),
+            .withMessage("The classification name is required."),
 
         // vehicle make is required
         body("inv_make")
             .trim()
             .isLength({ min: 3 })
-            .withMessage("Please provide vehicle make."),
+            .withMessage("The vehicle's make is required."),
 
         // vehicle model is required
         body("inv_model")
             .trim()
             .isLength({ min: 2})
-            .withMessage("Please provide vehicle model."),
+            .withMessage("The vehicle's model is required."),
 
         // vehicle description is required
         body("inv_description")
             .trim()
             .isLength({ min: 1 })
-            .withMessage("Please provide vehicle description."),
+            .withMessage("The vehicle's description is required."),
 
         // vehicle image path is required
         body("inv_image")
             .trim()
             .isLength({ min: 1})
-            .withMessage("Please provide image path"),
+            .withMessage("The image path is required."),
 
         // vehicle thumbnail path is required
         body("inv_thumbnail")
             .trim()
             .isLength({ min: 1 })
-            .withMessage("Please provide thumbnail path."),
+            .withMessage("The thumbnail path is required."),
 
         // price is required
         body("inv_price")
             .trim()
             .isCurrency()
-            .withMessage("Please provide vehicle price."),
+            .withMessage("The vehicle's price is required."),
 
         // year is required
         body("inv_year")
             .trim()
             .isInt({ min: 1880, max: `${new Date().getFullYear()}`})
-            .withMessage("Please provide vehicle year"),
+            .withMessage("The vehicle's year is required."),
 
         // miles is required
         body("inv_miles")
             .trim()
             .isInt({ min: 0})
-            .withMessage("Please provide vehicle miles"),
+            .withMessage("The vehicle's miles is required."),
 
         // color is required
         body("inv_color")
             .trim()
             .isLength({ min: 1 })
-            .withMessage("Please provide vehicle color"),       
+            .withMessage("The vehicle's color is required."),       
     ]
 }
 
@@ -110,7 +111,13 @@ validate.addClassificationRules = () => {
             .trim()
             .isLength({ min: 1 })
             .isAlpha('en-US')
-            .withMessage("Please provide classification name."),
+            .withMessage("Classification name is required.")
+            .custom(async (classification_name) => {
+                const classificationNameExists = await inventoryModel.checkExistingClassificationName(classification_name)
+                if (classificationNameExists) {
+                    throw new Error("Classification name already exists. Please use a different name.")
+                }
+            }),
     ]
 }
 

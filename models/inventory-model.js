@@ -66,4 +66,17 @@ async function registerVehicle(classification_id, inv_make, inv_model, inv_descr
     }
 }
 
-module.exports = {getClassifications, getInventoryByClassificationId, getVehicleInfoByInventoryId, registerClassification, registerVehicle }
+/* **********************
+ *   Check for existing classification
+ * ********************* */
+async function checkExistingClassificationName(classification_name) {
+    try {
+        const sql = "SELECT * FROM classification WHERE classification_name = $1"
+        const classificationName = await pool.query(sql, [classification_name])
+        return classificationName.rowCount
+    } catch (error) {
+        return error.message
+    }
+}
+
+module.exports = { getClassifications, getInventoryByClassificationId, getVehicleInfoByInventoryId, registerClassification, registerVehicle, checkExistingClassificationName }
