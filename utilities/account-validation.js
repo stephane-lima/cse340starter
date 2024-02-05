@@ -102,7 +102,7 @@ validate.loginRules = () => {
 /* ******************************
  * Check data and return errors or continue to login
  * ***************************** */
-validate.checkLogData = async (req,res, next) => {
+validate.checkLoginData = async (req,res, next) => {
     const { account_email } = req.body
     let errors = validationResult(req)
     if (!errors.isEmpty()) {
