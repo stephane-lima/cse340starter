@@ -35,6 +35,10 @@ router.post(
     regValidate.checkAddVehicleRules,
     utilities.handleErrors(invController.registerVehicle))
 
+router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
+
+//Route to build the update view
+router.get("/edit/:inv_id", utilities.handleErrors(invController.editInventoryView))
 
 // 500 Error Route
 router.get("/broken", utilities.handleErrors(baseController.buildFooter))
