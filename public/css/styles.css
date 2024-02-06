@@ -400,7 +400,7 @@ form textarea {
   font-size: 18px;
 }
 
-form select {
+form select, select {
   width: 100%;
   padding: 10px;
   max-width: 20rem;

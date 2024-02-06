@@ -94,8 +94,7 @@ Util.buildVehicleInfoGrid = async function (data) {
 * ************************************ */
 Util.selectList = async function (classification_id) {
     let data = await invModel.getClassifications()
-    let list = '<label class="lbl-properties">Classification:'
-    list += '<select class="lbl-properties classification_id" id="classificationList" name="classification_id" required>'
+    let list = '<select class="lbl-properties classification_id" id="classificationList" name="classification_id" required>'
     list += '<option value="" selected>Choose a classification</option>'
     data.rows.forEach((row) => {
         list += `<option value="${row.classification_id}"`
@@ -107,7 +106,6 @@ Util.selectList = async function (classification_id) {
         list += `>${row.classification_name}</option>`
     })
     list += '</select>'
-    list += '</label>'
     return list
 }
 
