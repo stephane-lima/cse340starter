@@ -496,6 +496,7 @@ form textarea {
 }
 
 .required {
+  text-align: left;
   font-size: 1.2em;
   color: royalblue;
   margin-bottom: 0;
