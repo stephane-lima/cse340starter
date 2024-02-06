@@ -20,7 +20,7 @@
 <% let year = d.getFullYear() %>
 
 <!-- Edit Vehicle Display -->
-<form action="/inv/update" method="post">
+<form id="updateForm" action="/inv/update" method="post">
     <p class="required">All Fields are Required</p>
 
     <%- selectList %>
@@ -54,9 +54,10 @@
     </label>
 
     <div class="form-row">
-        <input type="submit" name="submit" id="regbtn" class="btn-submit" value="Update Vehicle">
+        <input type="submit" name="submit" id="updateBtn" class="btn-submit" value="Update Vehicle" disabled>
         <input type="hidden" name="inv_id"
         <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
         <% } %>>
     </div>
 </form>
+<script src="../../js/inv-update.js"></script>
