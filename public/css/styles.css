@@ -353,13 +353,13 @@ form label.lbl-properties {
   margin-bottom: 5px;
 }
 
-/* form p {
+form p {
   text-align: center;
   margin-top: 15px;
   margin-bottom: 5px;
   font-size: 1.15em;
   color: #3a3a3a;
-} */
+}
 
 form p a {
   text-decoration: underline;

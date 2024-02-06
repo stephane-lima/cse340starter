@@ -55,5 +55,8 @@
 
     <div class="form-row">
         <input type="submit" name="submit" id="regbtn" class="btn-submit" value="Update Vehicle">
+        <input type="hidden" name="inv_id"
+        <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+        <% } %>>
     </div>
 </form>

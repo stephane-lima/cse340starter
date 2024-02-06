@@ -40,6 +40,13 @@ router.get("/getInventory/:classification_id", utilities.handleErrors(invControl
 //Route to build the update view
 router.get("/edit/:inv_id", utilities.handleErrors(invController.editInventoryView))
 
+// Process the update vehicle data
+router.post(
+    "/update/",
+    regValidate.addVehicleRules(),
+    regValidate.checkUpdateData,
+    utilities.handleErrors(invController.updateInventory))
+
 // 500 Error Route
 router.get("/broken", utilities.handleErrors(baseController.buildFooter))
 

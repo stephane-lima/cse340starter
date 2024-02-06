@@ -28,10 +28,11 @@
         <input type="email" id="email" name="account_email" placeholder="Enter a valid email address" required value="<%= locals.account_email %>">
     </label>
     <label class="lbl-properties">Password:
-        <div><i>Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character</i></div>
+        <!-- <div><i>Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character</i></div> -->
         <input type="password" id="password" name="account_password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$" required>
         <!-- <span id="pswdBtn">Show Password</span> -->
     </label>
+    <div><i>Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character</i></div>
     <span id="pswdBtn">Show Password</span>
 
     <div class="form-row">
