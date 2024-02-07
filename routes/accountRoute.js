@@ -27,6 +27,12 @@ router.post(
     utilities.handleErrors(accountController.accountLogin)
 )
 
+// Build update account view
+router.get("/update/:account_id", utilities.handleErrors(accountController.buildUpdateAccount))
+
+// Process the update account data
+router.post("/update/", utilities.handleErrors(accountController.updateAccount))
+
 // Route to build the account management view
 router.get("/", utilities.checkLogin , utilities.handleErrors(accountController.buildAccountManagement))
 

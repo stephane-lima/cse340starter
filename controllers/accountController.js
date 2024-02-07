@@ -112,11 +112,31 @@ async function accountLogin(req, res) {
 * *************************************** */
 async function buildAccountManagement (req, res, next) {
     let nav = await utilities.getNav()
+    let grid = await utilities.buildUpdateAccountGrid()
     res.render("account/account-management", {
         title: "Account Management",
         nav,
         errors: null,
+        grid,
     })
 }
 
-module.exports = { buildLogin, buildRegister, registerAccount, accountLogin, buildAccountManagement }
+async function buildUpdateAccount (req, res, next) {
+    const account_id = parseInt(req.params.account_id)
+    console.log(account_id)
+    let nav = await utilities.getNav()
+    const accountData = await accountModel.getAccountByAccountId(account_id)
+    console.log(accountData) 
+    res.render("./account/update-account", {
+        title: "Edit Account",
+        nav,
+        errors: null,
+        account_id: accountData.account_id,
+        account_firstname: accountData.account_firstname,
+        account_lastname: accountData.account_lastname,
+        account_email: accountData.account_email,
+    })
+
+}
+
+module.exports = { buildLogin, buildRegister, registerAccount, accountLogin, buildAccountManagement, buildUpdateAccount }
