@@ -111,8 +111,10 @@ async function accountLogin(req, res) {
     *  Deliver account management view
 * *************************************** */
 async function buildAccountManagement (req, res, next) {
+    const account_id = parseInt(req.params.account_id)
+    console.log(account_id)
     let nav = await utilities.getNav()
-    let grid = await utilities.buildUpdateAccountGrid()
+    let grid = await utilities.buildAccountManagementGrid(account_id)
     res.render("account/account-management", {
         title: "Account Management",
         nav,
