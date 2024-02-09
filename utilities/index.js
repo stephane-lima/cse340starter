@@ -145,21 +145,6 @@ Util.checkLogin = (req, res, next) => {
     }
 }
 
-/* **************************************
-* Build the update account view HTML
-* ************************************ */
-Util.buildAccountManagementGrid = async function (account_id) {
-    // const account_id = req.body
-    // console.log(account_id)
-    let grid = '<h2>Welcome Happy</h2>'
-    grid += '<p>You are logged in.</p>'
-    grid += `<p><a href="/account/update/${account_id}">Edit Account Information</a></p>`
-    grid += '<h3>Inventory Management</h3>'
-    grid += '<p><a href="/inv/" title="Click to navigate to the inventory management">Manage Inventory</a></p>'
-    return grid
-}
-
-
 /* ****************************************
  * Middleware For Handling Errors
  * Wrap other function in this for 

@@ -43,7 +43,7 @@
 <p>Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character</p>
 <p>*note your original password will be changed</p>
 
-<form action="/account/update" method="post">
+<form action="/account/change" method="post">
     <label class="lbl-properties">Password:
         <!-- <div><i>Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character</i></div> -->
         <input type="password" id="password" name="account_password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$" required>
