@@ -118,6 +118,7 @@ async function buildAccountManagement (req, res, next) {
         title: "Account Management",
         nav,
         errors: null,
+        account_id
     })
 }
 
@@ -126,11 +127,10 @@ async function buildAccountManagement (req, res, next) {
 * *************************************** */
 async function buildUpdateAccount (req, res, next) {
     const account_id = parseInt(req.params.account_id)
-    console.log(account_id)
     let nav = await utilities.getNav()
     const accountData = await accountModel.getAccountByAccountId(account_id)
-    console.log(accountData) 
-    res.render("./account/update-account", {
+    // console.log(accountData) 
+    res.render("account/update-account", {
         title: "Edit Account",
         nav,
         errors: null,
@@ -139,13 +139,12 @@ async function buildUpdateAccount (req, res, next) {
         account_lastname: accountData[0].account_lastname,
         account_email: accountData[0].account_email,
     })
-
 }
 
 /* ****************************************
 *  Process account update / Update account
 * *************************************** */
-async function updateAccount(req, res) {
+async function updateAccount(req, res, next) {
     let nav = await utilities.getNav()
     const { account_firstname, account_lastname, account_email, account_id } = req.body
   
@@ -171,7 +170,7 @@ async function updateAccount(req, res) {
             account_firstname,
             account_lastname,
             account_email,
-            account_id,
+            account_id
         })
     }
 }
@@ -181,7 +180,7 @@ async function updateAccount(req, res) {
 * *************************************** */
 async function changePassword(req, res) {
     let nav = await utilities.getNav()
-    const { account_password } = req.body
+    const { account_firstname, account_lastname, account_email, account_id, account_password } = req.body
 
     // Hash the password before storing
     let hashedPassword
@@ -194,6 +193,9 @@ async function changePassword(req, res) {
             title: "Edit Account",
             nav,
             errors: null,
+            account_firstname,
+            account_lastname,
+            account_email,
         })
     }
   
@@ -214,6 +216,10 @@ async function changePassword(req, res) {
             title: "Edit Account",
             nav,
             errors: null,
+            account_firstname,
+            account_lastname,
+            account_email,
+            account_id
         })
     }
 }

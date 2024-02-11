@@ -45,19 +45,16 @@
 
 <form action="/account/change" method="post">
     <label class="lbl-properties">Password:
-        <!-- <div><i>Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character</i></div> -->
         <input type="password" id="password" name="account_password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$" required>
-        <!-- <span id="pswdBtn">Show Password</span> -->
     </label>
     <div><i>Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character</i></div>
     <span id="pswdBtn">Show Password</span>
 
     <div class="form-row">
-        <!-- <button type="submit" class="btn-submit" id="btn-submit">Register</button> -->
         <input type="submit" name="submit" class="btn-submit" value="Change Password">
         <input type="hidden" name="account_id"
         <% if(locals.account_id) { %> value="<%= locals.account_id %>"
         <% } %>>
-        <!-- <input type="hidden" name="action" value="register"> -->
     </div>
 </form>
+<script src="../../js/script.js"></script>

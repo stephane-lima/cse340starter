@@ -132,7 +132,7 @@ validate.UpdateAccountRules = () => {
         // lastname is required and must be string
         body("account_lastname")
             .trim()
-            .isLength({ min: 2 })
+            .isLength({ min: 1 })
             .withMessage("Please provide a last name."), // on error this message is sent.
 
         // valid email is required and cannot already exist in the DB
@@ -141,12 +141,13 @@ validate.UpdateAccountRules = () => {
             .isEmail()
             .normalizeEmail() // refer to validator.js docs
             .withMessage("A valid email is required.")
-            .custom(async (account_email) => {
-                const emailExists = await accountModel.checkExistingEmail(account_email)
-                if (emailExists){
-                    throw new Error("Email exists. Please use a different email.")
-                }
-            })
+            // .custom(async (account_email) => {
+            //     const emailExists = await accountModel.checkExistingEmail(account_email)
+            //     if (emailExists){
+            //         // throw new Error("Email exists. Please use a different email.")
+            //         account_email = ""
+            //     }
+            // })
     ]
 }
 
@@ -172,19 +173,18 @@ validate.changePasswordRules = () => {
  * Check update account data and return errors or continue to update the account
  * ***************************** */
 validate.checkUpdateAccountData = async (req, res, next) => {
-    const { account_firstname, account_lastname, account_email, account_id } = req.body
+    const { account_firstname, account_lastname, account_email } = req.body
     let errors = []
     errors = validationResult(req)
     if (!errors.isEmpty()) {
         let nav = await utilities.getNav()
         res.render("account/update-account", {
-            errors: null,
+            errors,
             title: "Edit Account",
             nav,
             account_firstname,
             account_lastname,
             account_email,
-            account_id,
         })
         return
     }

@@ -22,7 +22,7 @@
 
 <p>You're logged in.</p>
 
-<p><a href='/update/${account_id}'>Edit Account Information</a></p>
+<p><a href="/account/update/<%= locals.accountData.account_id %>">Edit Account Information</a></p>
 
 <% if (locals.accountData.account_type == "Admin" || locals.accountData.account_type == "Employee") { %>
     <h3>Inventory Management</h3>
