@@ -3,10 +3,12 @@
         <a href="/" id="logo" title="Return to home page">CSE Motors</a>
         
         <% if (locals.loggedin) { %>
-            <a href="/account/" title="Click to navigate to the account management page">Welcome <%= locals.accountData.account_firstname %></a>
-            <a title="Click to log out" id="account" href="/account/logout">Logout</a>
+            <div>
+                <a href="/account/" class="account" title="Click to navigate to the account management page">Welcome <%= locals.accountData.account_firstname %></a>
+                <a title="Click to log out" class="account" href="/account/logout">Logout</a>
+            </div>
         <% } else { %>
-            <a title="Click to log in" id="account" href="/account/login">My Account</a>
+            <a title="Click to log in" class="account" href="/account/login">My Account</a>
         <% } %>
     </div>
 </header>

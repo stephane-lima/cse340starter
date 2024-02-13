@@ -46,18 +46,30 @@ header a {
 
 #top-header {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 0.6fr 1fr;
+}
+
+#top-header div {
+  display: grid;
+  grid-template-columns: 1.7fr 0.5fr;
 }
 
 #logo {
   margin: 15px;
   font-size: 2em;
+  margin-right: 0;
 }
 
-#account {
+.account {
   text-align: right;
   margin: 15px;
   font-size: 1em;
+  margin-left: 0;
+  margin-right: 15px;
+}
+
+.myaccount {
+  grid-column: 3/4;
 }
 
 nav {
@@ -502,7 +514,46 @@ form textarea {
   margin-bottom: 0;
 }
 
+.password-requirement {
+  margin-top: 5px;
+}
+
+#pswdBtn {
+  color: white;
+  background-color: #3a3a3a;
+  cursor: pointer;
+  padding: 10px;
+  margin-top: 5px;
+  width: 100%;
+  max-width: 10rem;
+  text-align: center;
+  font-weight: 700;
+  border-radius: 10px;
+}
+
+#inventoryDisplay, td, th {
+  margin-top: 15px;
+  border: solid 2px #4c96d7;
+  border-collapse: collapse;
+}
+
+#inventoryDisplay td {
+  padding: 10px;
+}
+
+.modify {
+  color: royalblue;
+}
+
+.delete {
+  color: darkred;
+}
+
 @media only screen and (min-width: 450px) {
+  main, footer {
+    margin: 15px;
+  }
+  
   .home-section-2 {
     margin-top: 10px;
     margin-left: 15px;
