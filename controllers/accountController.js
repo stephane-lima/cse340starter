@@ -1,6 +1,7 @@
 // Needed Resources
 const utilities = require("../utilities/index")
 const accountModel = require("../models/account-model")
+const reviewModel = require("../models/review-model")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 require("dotenv").config()
@@ -111,13 +112,17 @@ async function accountLogin(req, res) {
     *  Deliver account management view
 * *************************************** */
 async function buildAccountManagement (req, res, next) {
-    const account_id = parseInt(req.params.account_id)
+    const account_id = res.locals.accountData.account_id
     console.log(account_id)
+    const data = await reviewModel.getReviewByAccountId(account_id)
+    console.log(data)
+    const grid = await utilities.buildReviewGrid(data)
     let nav = await utilities.getNav()
     res.render("account/account-management", {
         title: "Account Management",
         nav,
         errors: null,
+        grid,
         account_id
     })
 }

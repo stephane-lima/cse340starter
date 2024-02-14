@@ -158,6 +158,27 @@ Util.checkAccountType = (req, res, next) => {
 }
 
 /* ****************************************
+ *  Build my reviews list
+ * ************************************ */
+Util.buildReviewGrid = async function(data) {
+    let grid
+    if (data.length > 0) {
+        grid = '<ol>'
+        data.forEach(review => {
+            grid += '<li> Reviewed the ' + review.inv_year + ' ' + review.inv_make + ' ' + review.inv_model
+            grid += ' on ' + review.review_date + ' | '
+            grid += '<a href="/review/change/' + review.review_id + '">Edit</a> | '
+            grid += '<a href="/review/delete/' + review.review_id +'">Delete</a>'
+            grid += '</li>'    
+        })
+        grid += '</ol>'
+    } else {
+        grid += '<p>There is no review.</p>'
+    }
+    return grid
+}
+
+/* ****************************************
  * Middleware For Handling Errors
  * Wrap other function in this for 
  * General Error Handling
