@@ -173,7 +173,7 @@ Util.buildReviewGrid = async function(data) {
         })
         grid += '</ol>'
     } else {
-        grid += '<p>There is no review.</p>'
+        grid = '<p>There is no review.</p>'
     }
     return grid
 }
