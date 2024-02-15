@@ -160,6 +160,25 @@ Util.checkAccountType = (req, res, next) => {
 /* ****************************************
  *  Build my reviews list
  * ************************************ */
+Util.buildCustomerReviewGrid = async function(data) {
+    let reviewGrid
+    if (data.length > 0) {
+        reviewGrid = '<ul>'
+        data.forEach(review => {
+            reviewGrid += '<li>' + review.account_firstname[0] + review.account_lastname
+            reviewGrid += ' wrote on ' + review.review_date + '<hr>' + review.review_text
+            reviewGrid += '</li>'
+        })
+        reviewGrid += '</ul>'
+    } else {
+        reviewGrid = '<p>There is no review.</p>'
+    }
+    return reviewGrid
+}
+
+/* ****************************************
+ *  Build my reviews list
+ * ************************************ */
 Util.buildReviewGrid = async function(data) {
     let grid
     if (data.length > 0) {
@@ -167,7 +186,7 @@ Util.buildReviewGrid = async function(data) {
         data.forEach(review => {
             grid += '<li> Reviewed the ' + review.inv_year + ' ' + review.inv_make + ' ' + review.inv_model
             grid += ' on ' + review.review_date + ' | '
-            grid += '<a href="/review/change/' + review.review_id + '">Edit</a> | '
+            grid += '<a href="/review/update/' + review.review_id + '">Edit</a> | '
             grid += '<a href="/review/delete/' + review.review_id +'">Delete</a>'
             grid += '</li>'    
         })

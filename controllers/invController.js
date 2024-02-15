@@ -1,5 +1,6 @@
 const invModel = require("../models/inventory-model")
 const invModel1 = require("../models/inventory-model")
+const reviewModel = require("../models/review-model")
 
 const utilities = require("../utilities/")
 
@@ -28,6 +29,9 @@ invCont.buildByInventoryId = async function (req, res, next) {
     const inv_id = req.params.inventoryId
     const data = await invModel1.getVehicleInfoByInventoryId(inv_id)
     const grid = await utilities.buildVehicleInfoGrid(data)
+    const reviewData = await reviewModel.getReviewByInventoryId(inv_id)
+    console.log(reviewData)
+    const reviewGrid = await utilities.buildCustomerReviewGrid(reviewData)
     let nav = await utilities.getNav()
     const invYear = data[0].inv_year
     const invMake = data[0].inv_make
@@ -36,6 +40,7 @@ invCont.buildByInventoryId = async function (req, res, next) {
         title: invYear + " " + invMake + " " + invModel,
         nav,
         grid,
+        reviewGrid,
         inv_id
     })
 }
@@ -280,13 +285,13 @@ invCont.buildDeleteView = async function (req, res, next) {
  *  Delete Item Data
  * ************************** */
 invCont.deleteItem = async function (req, res, next) {
-    let nav = await utilities.getNav()
+    // let nav = await utilities.getNav()
     const inv_id = parseInt(req.body.inv_id)
     
     const deleteResult = await invModel.deleteInventoryItem(inv_id)
   
     if (deleteResult) {
-        req.flash("notice", `The deletion was successfully updated.`)
+        req.flash("notice", `The vehicle was successfully deleted.`)
         res.redirect("/inv/")
     } else {
         req.flash("notice", "Sorry, the delete failed.")

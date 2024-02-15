@@ -13,6 +13,8 @@
 
 <h2>Customer Reviews</h2>
 
+<%- reviewGrid %>
+
 <% if (!locals.loggedin) { %>
     <p>You must <a href="/account/login">login</a> to write a review.</p>
 <% } else { %>
