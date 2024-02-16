@@ -12,7 +12,7 @@ validate.addReviewRules = () => {
         body("review_text")
             .trim()
             .isLength({ min: 1 })
-            .withMessage("the review text is required.")
+            .withMessage("The review text is required.")
     ]
 }
 
