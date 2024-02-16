@@ -1,4 +1,5 @@
 const utilities = require(".")
+const reviewModel = require("../models/review-model")
 const { body, validationResult } = require("express-validator")
 const validate = {}
 
@@ -15,23 +16,23 @@ validate.addReviewRules = () => {
     ]
 }
 
-// validate.checkAddReviewRules = async (req, res, next) => {
-//     const { review_text, inv_id, account_id } = req.body
-//     let errors = []
-//     errors = validationResult(req)
-//     if (!errors.isEmpty()) {
-//         let nav = await utilities.getNav()
-//         res.render("./inventory/vehicle-info", {
-            
-//         })
-//     }
-// }
+validate.checkAddReviewRules = async (req, res, next) => {
+    const { review_text, inv_id, account_id } = req.body
+    let errors = []
+    errors = validationResult(req)
+    if (!errors.isEmpty()) {
+        res.redirect(`/inv/detail/${inv_id}`)
+        return
+    }
+    next()
+}
 
 /* ******************************
  * Check update data and return errors or continue to update the review
  * ***************************** */
 validate.checkUpdateReviewData = async (req, res, next) => {
-    const { review_text, review_id } = req.body
+    const { review_text, review_id, review_date } = req.body
+    console.log(req.body)
     let errors = []
     errors = validationResult(req)
     if (!errors.isEmpty()) {
@@ -44,6 +45,7 @@ validate.checkUpdateReviewData = async (req, res, next) => {
             nav,
             review_text,
             review_id,
+            review_date,
         })
         return
     }

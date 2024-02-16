@@ -17,7 +17,8 @@ async function getReviewByInventoryId(inv_id) {
             `SELECT account_firstname, account_lastname, TO_CHAR(review_date, 'Month DD, YYYY') AS review_date, review_text
             FROM account
             JOIN review ON account.account_id = review.account_id
-            WHERE review.inv_id = $1`,
+            WHERE review.inv_id = $1
+            ORDER BY review_date DESC`,
             [inv_id]
         )
         return data.rows

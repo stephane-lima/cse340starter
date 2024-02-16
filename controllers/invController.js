@@ -39,6 +39,7 @@ invCont.buildByInventoryId = async function (req, res, next) {
     res.render("./inventory/vehicle-info", {
         title: invYear + " " + invMake + " " + invModel,
         nav,
+        errors: null,
         grid,
         reviewGrid,
         inv_id

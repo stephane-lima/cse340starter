@@ -6,7 +6,11 @@ const reviewController = require("../controllers/reviewController")
 const reviewValidate = require("../utilities/review-validation")
 
 // New review request
-router.post("/addReview", utilities.handleErrors(reviewController.addReview))
+router.post(
+    "/addReview",
+    reviewValidate.addReviewRules(),
+    reviewValidate.checkAddReviewRules,
+    utilities.handleErrors(reviewController.addReview))
 
 // Build edit review view
 router.get("/update/:review_id", utilities.handleErrors(reviewController.buildEditReview))

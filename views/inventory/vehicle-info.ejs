@@ -11,6 +11,14 @@
 <!-- Vehicle Information Display -->
 <%- grid %>
 
+<% if (errors) { %>
+    <ul class="notice">
+        <% errors.array().forEach(error => { %>
+            <li><%= error.msg %></li>
+        <% }) %>
+    </ul>
+<% } %>
+
 <h2>Customer Reviews</h2>
 
 <%- reviewGrid %>
