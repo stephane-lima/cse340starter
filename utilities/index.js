@@ -163,11 +163,11 @@ Util.checkAccountType = (req, res, next) => {
 Util.buildCustomerReviewGrid = async function(data) {
     let reviewGrid
     if (data.length > 0) {
-        reviewGrid = '<ul>'
+        reviewGrid = '<ul class="customer_reviews">'
         data.forEach(review => {
-            reviewGrid += '<li>' + review.account_firstname[0] + review.account_lastname
-            reviewGrid += ' wrote on ' + review.review_date + '<hr>' + review.review_text
-            reviewGrid += '</li>'
+            reviewGrid += '<li><p class="screen_name">' + review.account_firstname[0] + review.account_lastname
+            reviewGrid += ' wrote on ' + review.modified_review_date + '</p><hr><p class="review_text">' + review.review_text
+            reviewGrid += '</p></li>'
         })
         reviewGrid += '</ul>'
     } else {
@@ -182,12 +182,12 @@ Util.buildCustomerReviewGrid = async function(data) {
 Util.buildReviewGrid = async function(data) {
     let grid
     if (data.length > 0) {
-        grid = '<ol>'
+        grid = '<ol class="my_reviews">'
         data.forEach(review => {
             grid += '<li> Reviewed the ' + review.inv_year + ' ' + review.inv_make + ' ' + review.inv_model
             grid += ' on ' + review.review_date + ' | '
-            grid += '<a href="/review/update/' + review.review_id + '">Edit</a> | '
-            grid += '<a href="/review/delete/' + review.review_id +'">Delete</a>'
+            grid += '<a class="modify" href="/review/update/' + review.review_id + '">Edit</a> | '
+            grid += '<a class="delete" href="/review/delete/' + review.review_id +'">Delete</a>'
             grid += '</li>'    
         })
         grid += '</ol>'

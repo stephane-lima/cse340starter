@@ -549,6 +549,36 @@ form textarea {
   color: darkred;
 }
 
+.customer_reviews {
+  padding-left: 18px;
+}
+
+.customer_reviews hr {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.screen_name {
+  margin-bottom: 0;
+}
+
+.review_text {
+  margin-top: 0;
+}
+
+.my-reviews-h2 {
+  margin-bottom: 10px;
+}
+
+.my_reviews {
+  padding-left: 15px;
+  margin-top: 0;
+}
+
+.my_reviews li {
+  margin-bottom: 10px; 
+}
+
 @media only screen and (min-width: 450px) {
   main, footer {
     margin: 15px;

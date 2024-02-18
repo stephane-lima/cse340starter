@@ -1,5 +1,6 @@
 const utilities = require(".")
 const reviewModel = require("../models/review-model")
+const invModel1 = require("../models/inventory-model")
 const { body, validationResult } = require("express-validator")
 const validate = {}
 
@@ -8,11 +9,11 @@ const validate = {}
  * ********************************* */
 validate.addReviewRules = () => {
     return [
-        // review text is required
+        // vehicle description is required
         body("review_text")
             .trim()
             .isLength({ min: 1 })
-            .withMessage("The review text is required.")
+            .withMessage("The review text is required."),
     ]
 }
 
@@ -20,8 +21,25 @@ validate.checkAddReviewRules = async (req, res, next) => {
     const { review_text, inv_id, account_id } = req.body
     let errors = []
     errors = validationResult(req)
+    console.log(errors)
     if (!errors.isEmpty()) {
-        res.redirect(`/inv/detail/${inv_id}`)
+        const data = await invModel1.getVehicleInfoByInventoryId(inv_id)
+        const grid = await utilities.buildVehicleInfoGrid(data)
+        const reviewData = await reviewModel.getReviewByInventoryId(inv_id)
+        console.log(reviewData)
+        const reviewGrid = await utilities.buildCustomerReviewGrid(reviewData)
+        let nav = await utilities.getNav()
+        const invYear = data[0].inv_year
+        const invMake = data[0].inv_make
+        const invModel = data[0].inv_model
+        res.render("./inventory/vehicle-info", {
+            title: invYear + " " + invMake + " " + invModel,
+            nav,
+            errors,
+            grid,
+            reviewGrid,
+            inv_id
+        })
         return
     }
     next()
@@ -41,7 +59,7 @@ validate.checkUpdateReviewData = async (req, res, next) => {
         const itemName = `${reviewData[0].inv_year} ${reviewData[0].inv_make} ${reviewData[0].inv_model}`
         res.render("./review/edit-review", {
             title: "Edit " + itemName + " Review",
-            errors: null,
+            errors,
             nav,
             review_text,
             review_id,

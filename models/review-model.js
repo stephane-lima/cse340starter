@@ -14,7 +14,7 @@ async function addReview(review_text, inv_id, account_id) {
 async function getReviewByInventoryId(inv_id) {
     try {
         const data = await pool.query(
-            `SELECT account_firstname, account_lastname, TO_CHAR(review_date, 'Month DD, YYYY') AS review_date, review_text
+            `SELECT account_firstname, account_lastname, review_date, review_text, TO_CHAR(review_date, 'Month DD, YYYY') AS modified_review_date
             FROM account
             JOIN review ON account.account_id = review.account_id
             WHERE review.inv_id = $1

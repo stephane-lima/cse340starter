@@ -7,28 +7,18 @@ const revConst = {}
  *  Build add review view
  * ************************** */
 revConst.addReview = async function (req, res) {
-    // let nav = await utilities.getNav()
     const { review_text, account_id, inv_id } = req.body
 
     const regResult = await reviewModel.addReview(review_text, inv_id, account_id)
-
-    // const data = await reviewModel.getReviewByAccountId(account_id)
-    // const grid = await utilities.buildReviewGrid(data)
     
     if(regResult) {
-        // req.flash(
-        //     "notice",
-        //     "The review was successfully added."
-        // )
         res.redirect(`/inv/detail/${inv_id}`)
     } else {
         req.flash(
             "notice",
             "sorry, the adition failed."
         )
-        res.render(`/inv/detail/${inv_id}`, {
-            
-        })
+        res.redirect(`/inv/detail/${inv_id}`)
     }
 }
 
@@ -116,7 +106,7 @@ revConst.deleteReview = async function (req, res, next) {
         res.redirect("/account/")
     } else {
         req.flash("notice", "Sorry, the delete failed.")
-        res.redirect("/review/delete/review_id")
+        res.redirect(`/review/delete/${review_id}`)
     }
 }
 
